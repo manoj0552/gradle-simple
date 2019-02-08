@@ -17,7 +17,7 @@ pipeline {
     	}
     	 stage('sonar') {
     	 steps {
-    	  bash '''
+    	  bat '''
     	  #!/bin/bash
     	  gradle sonarqube
     	  '''
