@@ -12,6 +12,7 @@ repositories {
 
 dependencies {
   compile 'com.google.guava:guava:18.0'
+  id "org.sonarqube" version "2.7"
 }
 
 task sourcesJar(type: Jar, dependsOn: classes) {
