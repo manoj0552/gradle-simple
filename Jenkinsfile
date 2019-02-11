@@ -1,12 +1,16 @@
 pipeline {
     agent any
+    options {
+        skipDefaultCheckout(true)
+    }
+
 	stages {
 	    stage('checkout') {
 	    	steps {
 	    
 	   
     	  
-    checkout([$class: 'GitSCM', branches: [[name: '*/master']], 
+    checkout(scm:[$class: 'GitSCM', branches: [[name: '*/master']], 
                 doGenerateSubmoduleConfigurations: false, 
                 extensions: [[$class: 'CloneOption', timeout: 240]], // CheckoutOption -> CloneOption                                                 
                 gitTool: 'Default', 
