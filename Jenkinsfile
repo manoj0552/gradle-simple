@@ -8,18 +8,16 @@ pipeline {
 	    doGenerateSubmoduleConfigurations: false, 
 	    extensions: [], 
 	    submoduleCfg: [], 
-	    userRemoteConfigs: [[credentialsId: 'fbd8b275-22c9-4cb1-8645-7f9d51e92fee', 
+	    userRemoteConfigs: [[credentialsId: 'Manoj2', 
 	    url: 'https://github.com/manoj0552/gradle-simple.git']]])
     	    
-    	}
-	    
-	        	   
+    	}	        	   
     	}
     	 stage('sonar') {
     	 steps {
-    	  bat '''    	 
-    	  gradle sonarqube
-    	  '''
+    	    	 
+    	  bat 'gradle build sonarqube'
+    	  
  	        
  	    }
 	   
