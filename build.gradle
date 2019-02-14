@@ -1,22 +1,31 @@
-buildscript {
-        repositories {
-                mavenLocal()
-                jcenter()
-                maven {
-                        url "https://plugins.gradle.org/m2/"
-                }
-        }
-        dependencies {
-                classpath group: "org.sonarsource.scanner.gradle", name:"sonarqube-gradle-plugin", version:"2.5"
-				classpath "org.sonarsource.scanner.gradle:sonarqube-gradle-plugin:2.2.1"
-				}
-}
-
 plugins {
 	id "org.sonarqube" version "2.2.1"
   }
 
+apply plugin: "org.sonarqube"
+apply plugin: 'jacoco'
+
+buildscript {
+    repositories { 
+      maven {
+        url "http://repo1.maven.org/maven2/"
+      }
+      maven {
+        url "https://plugins.gradle.org/m2/"
+      }
+      mavenLocal()
+    }
+    dependencies { 
+      classpath 'org.ajoberstar:gradle-jacoco:0.1.0'
+      classpath "org.sonarsource.scanner.gradle:sonarqube-gradle-plugin:2.2.1"
+    }
+}
+
+
 
 group = 'com.test.sonarqube.gradle'
-apply plugin: "org.sonarqube"
-apply plugin: 'sonar-runner'
+
+
+
+	
+	
