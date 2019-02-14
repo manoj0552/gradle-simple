@@ -20,7 +20,7 @@ pipeline {
     	 stage('sonar') {
     	 steps {
     	    	 
-    	  bat './gradlew --debug build sonarqube'
+    	  bat './gradlew --stacktrace build sonarqube'
     	  
  	        
  	    }
