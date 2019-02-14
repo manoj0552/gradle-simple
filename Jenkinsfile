@@ -10,14 +10,14 @@ pipeline {
 	    
 	   
     	  
-    checkout(scm:[$class: 'GitSCM', branches: [[name: '*/master']], 
+    checkout([
+    			$class: 'GitSCM', 
+    			branches: scm.branchs, 
                 doGenerateSubmoduleConfigurations: false, 
-                extensions: [[$class: 'CloneOption', timeout: 240]], // CheckoutOption -> CloneOption                                                 
-                gitTool: 'Default', 
-                submoduleCfg: [], 
-                userRemoteConfigs: [[ credentialsId: 'Manoj2', 
-                                url: 'https://github.com/manoj0552/gradle-simple.git' 
-                ]]])
+                extensions: [$class: 'CloneOption'], // CheckoutOption -> CloneOption                
+                userRemoteConfigs: [ credentialsId: 'Manoj2', 
+                 url: 'https://github.com/manoj0552/gradle-simple.git'] 
+                ])
     	}	        	   
     	}
     	 stage('sonar') {
