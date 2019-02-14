@@ -6,6 +6,7 @@ buildscript {
 	jcenter()
 	mavenLocal()
 	mavenCentral()
+	
   }
   dependencies {
     classpath "org.sonarsource.scanner.gradle:sonarqube-gradle-plugin:2.7"
@@ -15,6 +16,7 @@ buildscript {
 sonarqube {
 	properties {
 		property 'sonar.projectName', 'Example of SonarQube Scanner for Gradle Usage'
+		property "sonar.projectKey", "org.sonarqube:portalApp"
 	}
 }
 
