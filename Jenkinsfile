@@ -12,7 +12,7 @@ pipeline {
     	  
     checkout([
     			$class: 'GitSCM', 
-    			branches: scm.branchs, 
+    			branches: [name:'*/master'], 
                 doGenerateSubmoduleConfigurations: false, 
                 extensions: [$class: 'CloneOption'], // CheckoutOption -> CloneOption                
                 userRemoteConfigs: [ credentialsId: 'Manoj2', 
