@@ -10,7 +10,7 @@ pipeline {
     
                 checkout([
                     $class: 'GitSCM',
-                    branches: scm.branches,
+                    branches: [[name: '*/master' ]],
                     doGenerateSubmoduleConfigurations: false,
                     extensions: scm.extensions + [[$class: 'SubmoduleOption', disableSubmodules: false, recursiveSubmodules: true, reference: '', trackingSubmodules: false]],
                     submoduleCfg: [],
