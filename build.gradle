@@ -9,14 +9,14 @@ buildscript {
 	
   }
   dependencies {
-    classpath "org.sonarsource.scanner.gradle:sonarqube-gradle-plugin:2.7"
+    classpath 'org.sonarqube.gradle:gradle-sonarqube-plugin:1.0'
   }
 }
 
 sonarqube {
 	properties {
 		property 'sonar.projectName', 'Example of SonarQube Scanner for Gradle Usage'
-		property "sonar.projectKey", "org.sonarqube:portalApp"
+		property 'sonar.projectKey', 'org.sonarqube:portalApp'
 	}
 }
 
