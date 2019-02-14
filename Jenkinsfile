@@ -6,18 +6,16 @@ pipeline {
 
 	stages {
 	    stage('checkout') {
-	    	steps {
-	    
-	   
-    	  
-    checkout([
-    			$class: 'GitSCM', 
-    			branches: [name:'*/master'], 
-                doGenerateSubmoduleConfigurations: false, 
-                extensions: [$class: 'CloneOption'], // CheckoutOption -> CloneOption                
-                userRemoteConfigs: [ credentialsId: 'Manoj2', 
-                 url: 'https://github.com/manoj0552/gradle-simple.git'] 
-                ])
+	    	steps {    	  
+    
+                checkout([
+                    $class: 'GitSCM',
+                    branches: scm.branches,
+                    doGenerateSubmoduleConfigurations: false,
+                    extensions: scm.extensions + [[$class: 'SubmoduleOption', disableSubmodules: false, recursiveSubmodules: true, reference: '', trackingSubmodules: false]],
+                    submoduleCfg: [],
+                    userRemoteConfigs: [ credentialsId: 'Manoj2', 
+                 url: 'https://github.com/manoj0552/gradle-simple.git']])
     	}	        	   
     	}
     	 stage('sonar') {
