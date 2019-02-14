@@ -3,6 +3,9 @@ buildscript {
     maven {
       url "https://plugins.gradle.org/m2/"
     }
+	jcenter()
+	mavenLocal()
+	mavenCentral()
   }
   dependencies {
     classpath "org.sonarsource.scanner.gradle:sonarqube-gradle-plugin:2.7"
@@ -16,4 +19,6 @@ sonarqube {
 }
 
 apply plugin: "org.sonarqube"
+apply plugin: 'maven-publish'
 apply plugin: 'java'
+apply plugin: 'maven'
