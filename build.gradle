@@ -8,8 +8,15 @@ buildscript {
         }
         dependencies {
                 classpath group: "org.sonarsource.scanner.gradle", name:"sonarqube-gradle-plugin", version:"2.5"
-        }
+				classpath "org.sonarsource.scanner.gradle:sonarqube-gradle-plugin:2.2.1"
+				}
 }
+
+plugins {
+	id "org.sonarqube" version "2.2.1"
+  }
+
 
 group = 'com.test.sonarqube.gradle'
 apply plugin: "org.sonarqube"
+apply plugin: 'sonar-runner'
